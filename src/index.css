@@ -1,0 +1,13 @@
+body {
+  font-family: Arial;
+  color: #121212;
+  background-color: #fff4ee;
+  padding: 0;
+  margin: 0;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
