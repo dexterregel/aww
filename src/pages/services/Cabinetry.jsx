@@ -1,5 +1,4 @@
 
-
 export default function Cabinetry() {
 
   // import images in dir
@@ -8,12 +7,13 @@ export default function Cabinetry() {
   //   { eager: true, query: 'url' }
   // );
 
-  const gallery = Object.values(import.meta.glob('../../assets/images/cabinetry/*', { eager: true, query: 'url'}));
+  // const gallery = Object.values(import.meta.glob('/*', { eager: true, query: 'url'}));
   // for (const path in modules) {
   //   const p = new URL(path, import.meta.url).href;
   //   gallery.push(p);
   // }
 
+  const gallery = Object.values(import.meta.glob('/public/images/*', { eager: true, query: 'url' }));
   console.log(gallery);
 
   return (
