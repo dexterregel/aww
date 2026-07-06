@@ -3,9 +3,6 @@ import conferenceRoom from '../../assets/images/misc/conference-room.jpg';
 import receptionArea from '../../assets/images/misc/reception-area.jpg';
 
 export default function Home() {
-
-  console.log(conferenceRoom);
-
   return (
     <main>
       <h1>Premier Woodworking Specialists</h1>
