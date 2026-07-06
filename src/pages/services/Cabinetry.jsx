@@ -13,8 +13,10 @@ export default function Cabinetry() {
   //   gallery.push(p);
   // }
 
-  const gallery = Object.values(import.meta.glob('/public/images/*', { eager: true, query: 'url' }));
-  console.log(gallery);
+  const modules = import.meta.glob('/src/assets/images/cabinetry/*', { eager: true });
+  const images = Object.values(modules).map((path, index) => {
+    return <img key={index} src={path.default} />;
+  });
 
   return (
     <main>
@@ -22,9 +24,7 @@ export default function Cabinetry() {
         <h1>Cabinetry</h1>
         <p>Architectural Woodworking's Cabinetry Division is the perfect answer for everything from face frame and european style cabinetry to custom finishes and solid surfaces. We back all cabinetry work with a full selection of styles, materials, accessories, and finishes. Our Cabinetry Division allows you to take the guess work out of ordering by delivering exactly what you need. Remember when you are working with Architectural Woodworking, we have the expertise and on site facilities to provide you with the product you require!</p>
         <div>
-          {gallery.map((path, index) => {
-            return <img key={index} src={path.default} />
-          })}
+          {images}
         </div>
       </section>
     </main>
