@@ -29,9 +29,22 @@
 
 .img-container {
     width: 500px;
+    text-align: center;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    gap: 2em;
+}
+
+.img-container a {
+    box-sizing: border-box;
+    color: #121212;
+    text-decoration: none;
+}
+
+.img-container a:hover {
+    font-weight: bold;
+    background-color: gold;
 }
 
 .img-container img {

@@ -19,20 +19,6 @@ function getImages(modules) {
   return images;
 }
 
-// function getImages(dirName) {
-
-//   const modules = import.meta.glob(`/src/assets/images/moldings-and-trim`, { eager: true });
-//   console.log('modules', modules);
-
-//   const module = modules[`/src/assets/images/moldings-and-trim/${dirName}`];
-//   console.log('module', module);
-
-//   const images = Object.values(module).map((path, index) => {
-//     return <img key={index} src={path.default} />;
-//   });
-//   return images;
-// }
-
 export default function MoldingAndTrim() {
 
   // generate preview images
