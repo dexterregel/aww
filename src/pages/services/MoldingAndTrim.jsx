@@ -69,7 +69,8 @@ export default function MoldingAndTrim() {
 
   return (
     <main>
-      <h1>molding and trim content here</h1>
+      <h1>Molding and Trim</h1>
+      <Link to='..' relative='path' className='back-button'>← Back to Services</Link>
       <div className='img-container'>
         <Link to='back-band'>
           {backBandPreviewImg}

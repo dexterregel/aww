@@ -5,6 +5,7 @@ import Layout from './components/Layout.jsx';
 import ServicesLayout from './components/ServicesLayout.jsx';
 import Home from './pages/home/Home.jsx';
 import Services from './pages/services/index.jsx';
+import Catalog from './pages/services/Catalog.jsx';
 import Gallery from './pages/Gallery.jsx';
 import Contact from './pages/contact/Contact.jsx';
 
@@ -18,6 +19,7 @@ function App() {
           <Route path='services/cabinetry' element={<Services.Cabinetry />} />
           <Route path='services/millwork' element={<Services.Millwork />} />
           <Route path='services/molding-and-trim' element={<Services.MoldingAndTrim />} />
+          <Route path='services/molding-and-trim/:type' element={<Catalog />} />
           <Route path='services/woodturning' element={<Services.Woodturning />} />
           <Route path='gallery' element={<Gallery />} />
           <Route path='contact' element={<Contact />} />

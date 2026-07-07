@@ -28,26 +28,36 @@
 /* molding and trim */
 
 .img-container {
-    width: 500px;
+    max-width: 500px;
     text-align: center;
     display: flex;
     flex-direction: row;
+    flex: 1 1 500px;
     flex-wrap: wrap;
     gap: 2em;
 }
 
 .img-container a {
-    box-sizing: border-box;
     color: #121212;
     text-decoration: none;
 }
 
 .img-container a:hover {
     font-weight: bold;
-    background-color: gold;
 }
 
-.img-container img {
-    width: 100px;
-    height: 200px;
+
+
+@media (max-width: 768px) {
+    .img-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .img-container img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
 }
