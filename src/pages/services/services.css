@@ -24,3 +24,17 @@
         max-width: 80vw;
     }
 }
+
+/* molding and trim */
+
+.img-container {
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.img-container img {
+    width: 100px;
+    height: 200px;
+}
