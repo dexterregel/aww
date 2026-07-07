@@ -1,0 +1,26 @@
+/* cabinetry */
+
+@media (max-width: 786px) {
+    section {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .back-button {
+        color: #121212;
+    }
+
+    .photos {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2em;
+    }
+
+    .img {
+        min-width: 40vw;
+        max-width: 80vw;
+    }
+}
