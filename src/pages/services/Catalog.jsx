@@ -24,10 +24,13 @@ export default function Catalog() {
   const modules = getModules(params.type);
   const images = getImages(modules);
 
+  const pageTitle = params.type[0].toUpperCase() + params.type.replaceAll('-', ' ').slice(1);
+  console.log(pageTitle);
+
   return (
     <main>
-      <Link to='..' relative='path'>← Back to molding and trim</Link>
-      <h1>{params.type}</h1>
+      <h1>{pageTitle}</h1>
+      <Link to='..' relative='path'>← Back to Molding and Trim</Link>
       {images}
     </main>
   );
