@@ -15,12 +15,14 @@ function App() {
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path='services' element={<Services />} />
-          <Route path='services/cabinetry' element={<Services.Cabinetry />} />
-          <Route path='services/millwork' element={<Services.Millwork />} />
-          <Route path='services/molding-and-trim' element={<Services.MoldingAndTrim />} />
-          <Route path='services/molding-and-trim/:type' element={<Catalog />} />
-          <Route path='services/woodturning' element={<Services.Woodturning />} />
+          <Route path='services' element={<ServicesLayout />}>
+            <Route index element={<Services />} />
+            <Route path='cabinetry' element={<Services.Cabinetry />} />
+            <Route path='millwork' element={<Services.Millwork />} />
+            <Route path='molding-and-trim' element={<Services.MoldingAndTrim />} />
+            <Route path='molding-and-trim/:type' element={<Catalog />} />
+            <Route path='woodturning' element={<Services.Woodturning />} />
+          </Route>
           <Route path='gallery' element={<Gallery />} />
           <Route path='contact' element={<Contact />} />
         </Route>
@@ -28,6 +30,27 @@ function App() {
     </BrowserRouter>
   );
 }
+
+// leaving the following commented in order to later implement ScrollRestoration
+
+// const routes = [
+//   {
+//     path: '/',
+//     element: <Layout />,
+//     children: [
+//       {index: true, element: <Home />},
+//       {path: 'services', element: <ServicesLayout />},
+//       {path: 'services/cabinetry', element: <Services.Cabinetry />},
+//       {path: 'services/millwork', element: <Services.Millwork />},
+//       {path: 'services/molding-and-trim', element: <Services.MoldingAndTrim />},
+//       {path: 'services/woodturning', element: <Services.Woodturning />},
+//       {path: 'gallery', element: <Gallery /> },
+//       {path: 'contact', element: <Contact />}
+//     ]
+//   }
+// ];
+
+// const router = createBrowserRouter(routes);
 
 ReactDOM
   .createRoot(document.getElementById('root'))

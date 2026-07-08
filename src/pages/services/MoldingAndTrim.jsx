@@ -71,64 +71,65 @@ export default function MoldingAndTrim() {
     <main>
       <h1>Molding and Trim</h1>
       <Link to='..' relative='path' className='back-button'>← Back to Services</Link>
+      <p>Explore our catalog:</p>
       <div className='img-container'>
-        <Link to='back-band'>
+        <Link to='back-band' className='img-with-caption'>
           {backBandPreviewImg}
           <p>Back band</p>
         </Link>
-        <Link to='bar-rail'>
+        <Link to='bar-rail' className='img-with-caption'>
           {barRailPreviewImg}
           <p>Bar rail</p>
         </Link>
-        <Link to='base-board'>
+        <Link to='base-board' className='img-with-caption'>
           {baseBoardPreviewImg}
           <p>Base board</p>
         </Link>
-        <Link to='base-cap'>
+        <Link to='base-cap' className='img-with-caption'>
           {baseCapPreviewImg}
           <p>Base cap</p>
         </Link>
-        <Link to='casings'>
+        <Link to='casings' className='img-with-caption'>
           {casingsPreviewImg}
           <p>Casings</p>
         </Link>
-        <Link to='chair-rail'>
+        <Link to='chair-rail' className='img-with-caption'>
           {chairRailPreviewImg}
           <p>Chair rail</p>
         </Link>
-        <Link to='cove-flute'>
+        <Link to='cove-flute' className='img-with-caption'>
           {coveFlutePreviewImg}
           <p>Cove/Flute</p>
         </Link>
-        <Link to='crown'>
+        <Link to='crown' className='img-with-caption'>
           {crownPreviewImg}
           <p>Crown</p>
         </Link>
-        <Link to='hand-rail'>
+        <Link to='hand-rail' className='img-with-caption'>
           {handRailPreviewImg}
           <p>Hand rail</p>
         </Link>
-        <Link to='misc'>
+        <Link to='misc' className='img-with-caption'>
           {miscPreviewImg}
           <p>Misc</p>
         </Link>
-        <Link to='panel'>
+        <Link to='panel' className='img-with-caption'>
           {panelPreviewImg}
           <p>Panel</p>
         </Link>
-        <Link to='reeded'>
+        <Link to='reeded' className='img-with-caption'>
           {reededPreviewImg}
           <p>Reeded</p>
         </Link>
-        <Link to='rounds'>
+        <Link to='rounds' className='img-with-caption'>
           {roundsPreviewImg}
           <p>Rounds</p>
         </Link>
-        <Link to='shoe'>
+        <Link to='shoe' className='img-with-caption'>
           {shoePreviewImg}
           <p>Shoe</p>
         </Link>
-        <Link to='tongue-and-groove'>
+        <Link to='tongue-and-groove' className='img-with-caption'>
           {tongueAndGroovePreviewImg}
           <p>Tongue and groove</p>
         </Link>

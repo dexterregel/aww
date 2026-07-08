@@ -4,7 +4,7 @@ export default function Services() {
   return (
     <main>
       <h1>Services</h1>
-      <p>We offer the following services. Select one to learn more:</p>
+      <p>We offer the following services:</p>
       <section className='service'>
         <NavLink to='cabinetry'>Cabinetry</NavLink>
         <p>We have a full in-house design and production facility to meet every kind of cabinetry demand.</p>
