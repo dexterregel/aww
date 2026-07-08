@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import './services.css';
+import './catalog.css';
 
 function getModules(dir) {
   const modules = import.meta.glob('/src/assets/images/molding-and-trim/**', { eager: true });
@@ -37,7 +37,9 @@ export default function Catalog() {
     <main>
       <h1>{pageTitle}</h1>
       <Link to='..' relative='path'>← Back to Molding and Trim</Link>
-      {images}
+      <div className='img-container'>
+        {images}
+      </div>
     </main>
   );
 }

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import './services.css';
+import './molding-and-trim.css';
 
 function getModules(dir) {
   const modules = import.meta.glob('/src/assets/images/molding-and-trim/**', { eager: true });
@@ -72,7 +72,7 @@ export default function MoldingAndTrim() {
       <h1>Molding and Trim</h1>
       <Link to='..' relative='path' className='back-button'>← Back to Services</Link>
       <p>Explore our catalog:</p>
-      <div className='img-container'>
+      <div className='catalog'>
         <Link to='back-band' className='img-with-caption'>
           {backBandPreviewImg}
           <p>Back band</p>

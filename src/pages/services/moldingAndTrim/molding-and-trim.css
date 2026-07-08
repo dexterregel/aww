@@ -1,0 +1,11 @@
+
+
+@media (max-width: 768px) {
+    .catalog {
+        
+    }
+
+    .catalog img {
+        border-radius: 10px;
+    }
+}

@@ -1,5 +1,5 @@
 import { Link, ScrollRestoration } from 'react-router-dom';
-import './services.css';
+import './cabinetry.css';
 
 export default function Cabinetry() {
 
