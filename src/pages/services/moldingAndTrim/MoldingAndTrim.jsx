@@ -1,139 +1,56 @@
 import { Link } from 'react-router-dom';
 import './molding-and-trim.css';
+import { getModules, getImages, getFileNameFromPath } from '../../../utils.jsx';
 
-function getModules(dir) {
-  const modules = import.meta.glob('/src/assets/images/molding-and-trim/**', { eager: true });
-  // convert to an array and filter based on dir
-  const filteredModules = Object.entries(modules).filter(
-    module => module[0].includes(dir)
-  );
+function getImgDirNames() {
+  // get the modules under the molding-and-trim dir
+  // this is a large array of absolute paths to the image files
+  const imgDirNames = Object.keys(import.meta.glob('/src/assets/images/molding-and-trim/**/*'));
+  // get the dir names using molding-and-trim as their parent
+  const parentDirIndex = imgDirNames[0].split('/').indexOf('molding-and-trim');
+  const set = new Set();
+  for (const path of imgDirNames) {
+    set.add((path.split('/')[parentDirIndex + 1]));
+  }
+  // this is a small array of the different molding and trim types
+  const moldingTrimTypes = Array.from(set);
 
-  // convert back to an object and return
-  return Object.fromEntries(filteredModules);
-}
+  // for each of those molding and trim types, you want to filter imgDirNames based on the dir to get all of the images under that dir
+  const someArr = [];
 
-function getImages(modules) {
-  const images = Object.values(modules).map((path, index) => {
-    return <img key={index} src={path.default} />;
-  });
-  return images;
+  // for each molding and trim type,
+  for (const type of moldingTrimTypes) {
+    // create a new object to store the type and its images
+    const someObj = {}
+    // set the molding and trim type
+    someObj.type = type;
+    // for the molding and trim type, filter the array of paths for just the relevant ones
+    someObj.images = imgDirNames.filter(dir => {
+      return dir.includes(type)
+    });
+
+    someArr.push(someObj);
+  }
+  return someArr;
 }
 
 export default function MoldingAndTrim() {
 
-  // generate preview images
-  const backBandModules = getModules('back-band');
-  const backBandPreviewImg = getImages(backBandModules)[0];
-
-  const barRailModules = getModules('bar-rail');
-  const barRailPreviewImg = getImages(barRailModules)[0];
-
-  const baseBaordModules = getModules('base-board');
-  const baseBoardPreviewImg = getImages(baseBaordModules)[0];
-
-  const baseCapModules = getModules('base-cap');
-  const baseCapPreviewImg = getImages(baseCapModules)[0];
-
-  const casingsModules = getModules('casings');
-  const casingsPreviewImg = getImages(casingsModules)[0];
-
-  const chairRailModules = getModules('chair-rail');
-  const chairRailPreviewImg = getImages(chairRailModules)[0];
-
-  const coveFluteModules = getModules('cove-flute');
-  const coveFlutePreviewImg = getImages(coveFluteModules)[0];
-
-  const crownModules = getModules('crown');
-  const crownPreviewImg = getImages(crownModules)[0];
-
-  const handRailModules = getModules('hand-rail');
-  const handRailPreviewImg = getImages(handRailModules)[0];
-
-  const miscModules = getModules('misc');
-  const miscPreviewImg = getImages(miscModules)[0];
-
-  const panelModules = getModules('panel');
-  const panelPreviewImg = getImages(panelModules)[0];
-
-  const reededModules = getModules('reeded');
-  const reededPreviewImg = getImages(reededModules)[0];
-
-  const roundsModules = getModules('rounds');
-  const roundsPreviewImg = getImages(roundsModules)[0];
-
-  const shoeModules = getModules('shoe');
-  const shoePreviewImg = getImages(shoeModules)[0];
-
-  const tongueAndGrooveModules = getModules('tongue-and-groove');
-  const tongueAndGroovePreviewImg = getImages(tongueAndGrooveModules)[0];
+  const previewEls = getImgDirNames().map((type, index) => {
+    return (
+      <Link key={index} to={type.type} className='molding-trim-item'>
+        <img src={type.images[0]} />
+        {type.type.charAt(0).toUpperCase() + type.type.replaceAll('-', ' ').slice(1)}
+      </Link>
+    );
+  });
 
   return (
     <main>
       <h1>Molding and Trim</h1>
       <Link to='..' relative='path' className='back-button'>← Back to Services</Link>
       <p>Explore our catalog:</p>
-      <div className='catalog'>
-        <Link to='back-band' className='img-with-caption'>
-          {backBandPreviewImg}
-          <p>Back band</p>
-        </Link>
-        <Link to='bar-rail' className='img-with-caption'>
-          {barRailPreviewImg}
-          <p>Bar rail</p>
-        </Link>
-        <Link to='base-board' className='img-with-caption'>
-          {baseBoardPreviewImg}
-          <p>Base board</p>
-        </Link>
-        <Link to='base-cap' className='img-with-caption'>
-          {baseCapPreviewImg}
-          <p>Base cap</p>
-        </Link>
-        <Link to='casings' className='img-with-caption'>
-          {casingsPreviewImg}
-          <p>Casings</p>
-        </Link>
-        <Link to='chair-rail' className='img-with-caption'>
-          {chairRailPreviewImg}
-          <p>Chair rail</p>
-        </Link>
-        <Link to='cove-flute' className='img-with-caption'>
-          {coveFlutePreviewImg}
-          <p>Cove/Flute</p>
-        </Link>
-        <Link to='crown' className='img-with-caption'>
-          {crownPreviewImg}
-          <p>Crown</p>
-        </Link>
-        <Link to='hand-rail' className='img-with-caption'>
-          {handRailPreviewImg}
-          <p>Hand rail</p>
-        </Link>
-        <Link to='misc' className='img-with-caption'>
-          {miscPreviewImg}
-          <p>Misc</p>
-        </Link>
-        <Link to='panel' className='img-with-caption'>
-          {panelPreviewImg}
-          <p>Panel</p>
-        </Link>
-        <Link to='reeded' className='img-with-caption'>
-          {reededPreviewImg}
-          <p>Reeded</p>
-        </Link>
-        <Link to='rounds' className='img-with-caption'>
-          {roundsPreviewImg}
-          <p>Rounds</p>
-        </Link>
-        <Link to='shoe' className='img-with-caption'>
-          {shoePreviewImg}
-          <p>Shoe</p>
-        </Link>
-        <Link to='tongue-and-groove' className='img-with-caption'>
-          {tongueAndGroovePreviewImg}
-          <p>Tongue and groove</p>
-        </Link>
-      </div>
+      {previewEls}
     </main>
   );
 }
