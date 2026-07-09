@@ -1,14 +1,3 @@
-// get modules based on the dir
-export function getModules(dir) {
-  const modules = import.meta.glob('/src/assets/images/molding-and-trim/**', { eager: true });
-  // convert to an array and filter it based on dir
-  const filteredModules = Object.entries(modules).filter(
-    module => module[0].includes(dir)
-  );
-  // convert back to an object and return
-  return Object.fromEntries(filteredModules);
-}
-
 // get images based on the module
 // export function getImages(modules) {
 //   const images = Object.values(modules).map((path, index) => {
@@ -16,6 +5,17 @@ export function getModules(dir) {
 //   });
 //   return images;
 // }
+
+// takes an array of paths and a parent dir, and returns an array of the child directories found under parentDir
+export function getChildDirs(paths, parentDir) {
+  const parentDirIndex = paths[0].split('/').indexOf(parentDir);
+  const set = new Set();
+  for (const path of paths) {
+    set.add((path.split('/')[parentDirIndex + 1]));
+  }
+  // convert the set back to an array and return it
+  return Array.from(set);
+}
 
 // returns the file name from an absolute path
 // by default it includes the file extension

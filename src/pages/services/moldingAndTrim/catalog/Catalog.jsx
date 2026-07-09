@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import './catalog.css';
-import { getModules, getImages, getFileNameFromPath } from '../../../../utils.jsx';
+import { getModules, getImages, getFileNameFromPath } from '../../../../utils.js';
 
 export default function Catalog() {
   const params = useParams();
