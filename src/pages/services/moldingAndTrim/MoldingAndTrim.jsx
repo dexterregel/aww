@@ -20,6 +20,7 @@ export default function MoldingAndTrim() {
     <main>
       <h1>Molding and Trim</h1>
       <Link to='..' relative='path' className='back-button'>← Back to Services</Link>
+      <img src='/assets/images/molding-and-trim/panel/awwab1.jpg?url' />
       <p>Explore our catalog:</p>
       <div className='molding-trim-container'>
         {moldingTrimEls}

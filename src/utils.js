@@ -53,8 +53,16 @@ export function getMoldingTrimModules() {
 // gets data for all of the images under the molding-and-trim dir
 export function getMoldingTrimImgData() {
   const moldingTrimModules = getMoldingTrimModules();
+
+
+
+
   // this is a large array of abs paths to all files under the molding-and-trim dir
-  const moldingTrimImgAbsPaths = Object.keys(moldingTrimModules);
+  // const moldingTrimImgAbsPaths = Object.keys(moldingTrimModules);
+
+  const moldingTrimImgAbsPaths = Object.values(moldingTrimModules).map(moldingTrimModule => moldingTrimModule.default);
+
+
   const moldingTrimChildDirs = getChildDirs(moldingTrimImgAbsPaths, 'molding-and-trim');
 
   const moldingTrimArr = [];

@@ -15,9 +15,7 @@ export default function Catalog() {
   const filteredMoldingTrimImgData = getMoldingTrimImgData().filter(moldingTrim => {
     return moldingTrim.type.includes(params.moldingTrimType);
   });
-  console.log(filteredMoldingTrimImgData);
   const moldingTrimEls = filteredMoldingTrimImgData[0].images.map((image, index) => {
-    console.log(image);
     return (
       <div key={index} className='molding-trim-item'>
         <img src={image} />
