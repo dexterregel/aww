@@ -10,11 +10,13 @@ export default function MoldingAndTrim() {
   const moldingTrimEls = getMoldingTrimImgData().map((type, index) => {
     return (
       <Link key={index} to={type.type} className='molding-trim-item'>
-        <img src={type.images[0]} />
+        {/* <img src={type.images[0]} /> */}
         {type.type.charAt(0).toUpperCase() + type.type.replaceAll('-', ' ').slice(1)}
       </Link>
     );
   });
+
+  console.log(moldingTrimEls);
 
   return (
     <main>
