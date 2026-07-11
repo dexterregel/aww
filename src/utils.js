@@ -35,6 +35,12 @@ export function getFilteredBucketContents(bucketContents, filter) {
   const json = parser.parse(bucketContents);
   const filteredBucketContents = json.ListBucketResult.Contents
     .map(image => image.Key)
-    .filter(image => image.includes(filter));
+    .filter(image => {
+      // filter out the result that isn't a file
+      if (image === `images/${filter}/`) {
+        return false;
+      }
+      return image.includes(filter);
+    });
   return filteredBucketContents;
 }

@@ -24,6 +24,7 @@
 
 @media (max-width: 768px) {
   .molding-trim-container {
+    width: 80vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,6 +34,7 @@
   }
 
   .molding-trim-item {
+    width: 80vw;
     color: #121212;
     background-color: white;
     text-decoration: none;

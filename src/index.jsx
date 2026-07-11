@@ -5,7 +5,7 @@ import Layout from './components/Layout.jsx';
 import ServicesLayout from './components/ServicesLayout.jsx';
 import Home from './pages/home/Home.jsx';
 import Services from './pages/services/index.jsx';
-import Gallery from './pages/Gallery.jsx';
+import Gallery from './pages/gallery/index.jsx';
 import Contact from './pages/contact/Contact.jsx';
 
 function App() {
@@ -23,6 +23,7 @@ function App() {
             <Route path='woodturning' element={<Services.Woodturning />} />
           </Route>
           <Route path='gallery' element={<Gallery />} />
+          <Route path='gallery/:galleryType' element={<Gallery.GalleryType />} />
           <Route path='contact' element={<Contact />} />
         </Route>
       </Routes>
