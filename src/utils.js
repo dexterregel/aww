@@ -1,3 +1,5 @@
+import { XMLParser } from 'fast-xml-parser';
+
 // get images based on the module
 // export function getImages(modules) {
 //   const images = Object.values(modules).map((path, index) => {
@@ -44,9 +46,10 @@ export function getImages(modules) {
 // gets the modules of all files under the molding-and-trim dir
 export function getMoldingTrimModules() {
   const moldingTrimModules = import.meta.glob(
-    '/src/assets/images/molding-and-trim/**/*',
-    { eager: true }
+    './assets/images/molding-and-trim/**/*',
+    { eager: true, import: 'default' }
   );
+  console.log('default', moldingTrimModules);
   return moldingTrimModules;
 }
 
@@ -60,7 +63,7 @@ export function getMoldingTrimImgData() {
   // this is a large array of abs paths to all files under the molding-and-trim dir
   // const moldingTrimImgAbsPaths = Object.keys(moldingTrimModules);
 
-  const moldingTrimImgAbsPaths = Object.values(moldingTrimModules).map(moldingTrimModule => moldingTrimModule.default);
+  const moldingTrimImgAbsPaths = Object.values(moldingTrimModules) //.map(moldingTrimModule => moldingTrimModule.default);
 
 
   const moldingTrimChildDirs = getChildDirs(moldingTrimImgAbsPaths, 'molding-and-trim');
@@ -75,4 +78,21 @@ export function getMoldingTrimImgData() {
     moldingTrimArr.push(moldingTrimObj);
   }
   return moldingTrimArr;
+}
+
+// gets the contents of the specified bucket
+// returns an xml doc
+export async function getBucketContents(bucketName) {
+  const res = await fetch(`http://s3.amazonaws.com/${bucketName}`);
+  const data = await res.text();
+  return data;
+}
+
+// the bucketContents param expects an xml doc
+export function getFilteredBucketContents(bucketContents, filter) {
+  const parser = new XMLParser();
+  const json = parser.parse(bucketContents);
+  // json.ListBucketResult.Contents is an array of objects
+  // each object has keys like Key (the path to the dir or image)
+  return json.ListBucketResult.Contents.map(image => image.Key).filter(image => image.includes(filter));
 }
