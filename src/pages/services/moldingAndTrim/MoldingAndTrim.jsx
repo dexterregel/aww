@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import './molding-and-trim.css';
 import {
   getChildDirs,
-  getMoldingTrimImgData,
   getBucketContents,
   getFilteredBucketContents
 } from '../../../utils.js';
@@ -32,41 +31,36 @@ export default function MoldingAndTrim() {
   }, []);
 
   // create molding and trim preview elements
-  function createPreviews(imagePaths) {
-    if (!imagePaths.length > 0) {
+  function getMoldingTrimPreviewEls(imagePaths) {
+    // exit early if imagePaths doesn't have data
+    if (imagePaths.length === 0) {
       return;
     }
-    const images = imagePaths.map(imagePath => {
-      return 
-    })
-    // get all of the child dirs
-    const childDirs = getChildDirs(imagePaths, 'molding-trim');
-    // for each child dir, get 1 image path from all of the image paths
-    const previewImgPaths = [];
-    for (const childDir of childDirs) {
-      const obj = {}
-      obj.type = childDir;
-      obj.path = imagePaths.filter(path => path.includes(childDir))[0];
-      previewImgPaths.push(obj);
+    // get a corresponding image for each child dir
+    const dirs = getChildDirs(imagePaths, 'molding-trim');
+    const images = [];
+    for (const dir of dirs) {
+      const image = {}
+      // get the image's type for setting the url
+      image.type = dir;
+      image.path = imagePaths.filter(path => path.includes(dir))[0];
+      images.push(image);
     }
-    const previewEls = previewImgPaths.map((path, index) => {
-      const imgSrc = `${bucketUrl}/${path.path}`;
-      console.log(imgSrc);
+    const moldingTrimPreviewEls = images.map((image, index) => {
       return (
-        <Link key={index} to={path.type} className='molding-trim-item'>
-          <img src={imgSrc} />
-          {path.type.charAt(0).toUpperCase() + path.type.replaceAll('-', ' ').slice(1)}
+        <Link key={index} to={image.type} className='molding-trim-item'>
+          <img src={`${bucketUrl}/${image.path}`} />
+          {image.type.charAt(0).toUpperCase() + image.type.replaceAll('-', ' ').slice(1)}
         </Link>
       );
     });
-    return previewEls;
+    return moldingTrimPreviewEls;
   }
-
-  const previewEls = createPreviews(imagePaths);
+  const moldingTrimPreviewEls = getMoldingTrimPreviewEls(imagePaths);
 
   // early return for if still fetching data
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <h1 style={{textAlign: 'center'}}>Loading...</h1>;
   }
 
   return (
@@ -75,7 +69,7 @@ export default function MoldingAndTrim() {
       <Link to='..' relative='path' className='back-button'>← Back to Services</Link>
       <p>Explore our catalog:</p>
       <div className='molding-trim-container'>
-        {previewEls}
+        {moldingTrimPreviewEls}
       </div>
     </main>
   );
