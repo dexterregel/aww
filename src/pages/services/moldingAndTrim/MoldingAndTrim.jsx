@@ -55,7 +55,7 @@ export default function MoldingAndTrim() {
       return (
         <Link key={index} to={path.type} className='molding-trim-item'>
           <img src={imgSrc} />
-          {path.type}
+          {path.type.charAt(0).toUpperCase() + path.type.replaceAll('-', ' ').slice(1)}
         </Link>
       );
     });
