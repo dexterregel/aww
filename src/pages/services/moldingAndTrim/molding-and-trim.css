@@ -24,12 +24,10 @@
 
 @media (max-width: 768px) {
   .molding-trim-container {
-    width: 80vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
     gap: 1em;
   }
 
@@ -40,6 +38,7 @@
     text-decoration: none;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     padding: 0.5em 1em;
     border-radius: 10px;
@@ -51,7 +50,12 @@
   }
 
   .molding-trim-item img {
+    max-width: 50px;
     max-height: 100px;
     object-fit: contain;
+  }
+
+  .molding-trim-item p {
+    width: 50%;
   }
 }

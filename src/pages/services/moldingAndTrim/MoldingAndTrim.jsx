@@ -50,7 +50,7 @@ export default function MoldingAndTrim() {
       return (
         <Link key={index} to={image.type} className='molding-trim-item'>
           <img src={`${bucketUrl}/${image.path}`} />
-          {image.type.charAt(0).toUpperCase() + image.type.replaceAll('-', ' ').slice(1)}
+          <p>{image.type.charAt(0).toUpperCase() + image.type.replaceAll('-', ' ').slice(1)}</p>
         </Link>
       );
     });
