@@ -2,10 +2,11 @@
   font-size: 1.3rem;
   list-style-type: none;
   text-align: center;
+  padding: 0;
   margin: 0;
 }
 
-.contact-info li {
+.contact-container li {
   margin-bottom: 0.5em;
 }
 
