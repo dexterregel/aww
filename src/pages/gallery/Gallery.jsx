@@ -47,9 +47,9 @@ export default function Gallery() {
     }
     const galleryTypePreviewEls = images.map((image, index) => {
       return (
-        <Link key={index} to={image.type} className='molding-trim-item'>
+        <Link key={index} to={image.type}>
           <img src={`${bucketUrl}/${image.path}`} />
-          {image.type.charAt(0).toUpperCase() + image.type.replaceAll('-', ' ').slice(1)}
+          <p>{image.type.charAt(0).toUpperCase() + image.type.replaceAll('-', ' ').slice(1)}</p>
         </Link>
       );
     });
@@ -65,7 +65,11 @@ export default function Gallery() {
     <main>
       <h1>Gallery</h1>
       <p>View our work:</p>
-      {galleryTypePreviewEls}
+      {/* <div className='gallery-container'> */}
+      <div className='gallery'>
+        {galleryTypePreviewEls}
+      </div>
+      {/* </div> */}
     </main>
   );
 }

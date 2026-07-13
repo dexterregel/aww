@@ -2,6 +2,19 @@ img {
     border-radius: 10px;
 }
 
-@media (min-width: 768px) {
+.gallery-container {
+    /* width: 80vw; */
+}
 
+.gallery {
+    width: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1em 1em;
+}
+
+@media (min-width: 768px) {
+ .gallery {
+    display: grid;
+ }
 }

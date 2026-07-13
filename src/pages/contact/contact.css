@@ -1,6 +1,7 @@
-.contact-info {
+.contact-container {
   font-size: 1.3rem;
   list-style-type: none;
+  text-align: center;
   margin: 0;
 }
 
