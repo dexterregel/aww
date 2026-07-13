@@ -5,7 +5,7 @@ export default function Contact() {
   const googleMapsBaseUrl = 'http://maps.googleapis.com/maps/api/staticmap';
   const googleMapsMarker = 'markers=color:red%7CArchitectural+Woodworking'; // %7C encodes to a pipe char
   const googleMapsZoom = 'zoom=15';
-  const googleMapsApiKey = '';
+  const googleMapsApiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
   const googleMapsUrl = `${googleMapsBaseUrl}?${googleMapsMarker}&${googleMapsZoom}&style=feature:poi|visibility:off&size=600x300&key=${googleMapsApiKey}`;
 
   return (
