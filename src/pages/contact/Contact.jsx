@@ -11,13 +11,17 @@ export default function Contact() {
   return (
     <main>
       <h1>Contact us</h1>
-      <img src={googleMapsUrl} />
-      <ul className='contact-container'>
-        <li>Architectural Woodworking</li>
-        <li>3291 40th Ave N</li>
-        <li>St. Petersburg, FL 33714</li>
-        <li>(727) 527-7400</li>
-      </ul>
+      <div className='container'>
+        <div className='img-container'>
+          <img src={googleMapsUrl} />
+        </div>
+        <ul className='data-container'>
+          <li>Architectural Woodworking</li>
+          <li>3291 40th Ave N</li>
+          <li>St. Petersburg, FL 33714</li>
+          <li>(727) 527-7400</li>
+        </ul>
+      </div>
     </main>
   );
 }

@@ -6,19 +6,19 @@ main {
   margin-bottom: 2em;
 }
 
-section {
+.home {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 2em;
 }
 
-section p {
+.home p {
   max-width: 300px;
   line-height: 1.5;
 }
 
-section img {
+.home img {
   width: 400px;
 }
 
