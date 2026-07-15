@@ -14,10 +14,6 @@ export default function Millwork() {
         <h2>Residential Woodworking</h2>
         <p>Our residential service provides experienced craftsmanship to work on projects ranging from outfitting multi-million dollar homes to accentuating current surroundings with furniture and decorative woodwork. You can put our manufacturing facility into action for you!</p>
       </section>
-      <section>
-        <h2>Custom Woodworking</h2>
-        <p>Combining custom woodworking with industrial manufacturing provides us with the ability to deliver your exact requirements on schedule. We have time-tested experience working on a variety of commercial and residential projects.</p>
-      </section>
     </main>
   );
 }

@@ -11,7 +11,7 @@ img {
     gap: 1em;
 }
 
-.gallery img {
+.section img {
   max-height: 200px;
   object-fit: cover;
 }
@@ -21,8 +21,20 @@ img {
 }
 
 @media (max-width: 768px) {
- .gallery {
+  .gallery {
     display: flex;
     flex-direction: column;
- }
+    justify-content: center;
+  }
+
+  .section {
+    width: 80%;
+    text-align: center;
+    background-color: white;
+    padding: 1em;
+  }
+
+  .section img {
+    height: 200px;
+  }
 }

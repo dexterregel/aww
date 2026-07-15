@@ -3,15 +3,27 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 2em;
 }
 
 .service {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  gap: 1em;
 }
 
 .service a {
   color: #121212;
+  text-decoration: none;
+}
+
+.service h2 {
+  margin: 0;
+}
+
+.service h2:hover {
+  text-decoration: underline;
 }
 
 .service p {
@@ -28,7 +40,7 @@
     gap: 1em;
   }
 
-  .service a {
-    margin-bottom: 1em;
+  .service {
+    margin-bottom: 2em;
   }
 }

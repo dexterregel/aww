@@ -43,7 +43,7 @@ main {
     margin: 0;
   }
 
-  img {
+  .home img {
     min-width: 40vw;
     max-width: 80vw;
   }
