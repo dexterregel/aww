@@ -30,7 +30,7 @@ export default function Gallery() {
   }, []);
 
   // create gallery type preview elements
-  function getGalleryTypePreviewEls(imagePaths) {
+  function getGallerySections(imagePaths) {
     // exit early if imagePaths doesn't have data
     if (imagePaths.length === 0) {
       return;
@@ -45,17 +45,17 @@ export default function Gallery() {
       image.path = imagePaths.filter(path => path.includes(dir))[0];
       images.push(image);
     }
-    const galleryTypePreviewEls = images.map((image, index) => {
+    const gallerySections = images.map((image, index) => {
       return (
-        <Link key={index} to={image.type}>
+        <Link key={index} to={image.type} className='section'>
           <img src={`${bucketUrl}/${image.path}`} />
           <p>{image.type.charAt(0).toUpperCase() + image.type.replaceAll('-', ' ').slice(1)}</p>
         </Link>
       );
     });
-    return galleryTypePreviewEls;
+    return gallerySections;
   }
-  const galleryTypePreviewEls = getGalleryTypePreviewEls(imagePaths);
+  const gallerySections = getGallerySections(imagePaths);
 
   if (isLoading) {
     return <h1 style={{textAlign: 'center'}}>Loading...</h1>;
@@ -65,11 +65,9 @@ export default function Gallery() {
     <main>
       <h1>Gallery</h1>
       <p>View our work:</p>
-      {/* <div className='gallery-container'> */}
       <div className='gallery'>
-        {galleryTypePreviewEls}
+        {gallerySections}
       </div>
-      {/* </div> */}
     </main>
   );
 }

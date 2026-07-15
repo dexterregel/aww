@@ -12,7 +12,7 @@ export default function Home() {
       </section>
       <section className='home'>
         <img src={receptionArea} />
-        <p>Our operation is built upon the knowledge and skills that our dedicated staff bring to the table (whether your board-room table or our saw tables). When you work with us, you're working with real people who have a long tenure of craftsmanship backed by industry certifications and awards. You can be assured your representative won't be afraid to get out into the shop and make sure your job is done right and on time!</p>
+        <p>Our operation is built upon the knowledge and skills that our dedicated staff bring to the table (whether your boardroom table or our saw tables). When you work with us, you're working with real people who have a long tenure of craftsmanship backed by industry certifications and awards. You can be assured your representative won't be afraid to get out into the shop and make sure your job is done right and on time!</p>
       </section>
     </main>
   );

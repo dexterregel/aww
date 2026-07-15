@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import './millwork.css';
 
 export default function Millwork() {
   return (
@@ -7,7 +8,7 @@ export default function Millwork() {
       <Link to='..' relative='path' className='back-button'>← Back to Services</Link>
       <section>
         <h2>Commercial Woodworking</h2>
-        <p>We specialize in providing custom woodworking to a variety of commercial organizations. We bring a wide variety of experiences, including retail stores, banks, reception areas, work stations, libraries, restaurants, and boardrooms. Take a moment to view some of our work located in <Link to='/gallery/mill-work'>the gallery</Link>.</p>
+        <p>We specialize in providing custom woodworking to a variety of commercial organizations. We bring a wide variety of experiences, including retail stores, banks, reception areas, work stations, libraries, restaurants, and boardrooms. Take a moment to view some of our work located in <Link to='/gallery/millwork'>the gallery</Link>.</p>
       </section>
       <section>
         <h2>Residential Woodworking</h2>
