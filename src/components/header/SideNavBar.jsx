@@ -11,7 +11,6 @@ export default function SideNavBar(props) {
   if (props.openSideNavBar) {
     classes = 'side-nav-bar open'
   }
-  console.log(classes);
 
   return (
     <nav className={classes}>

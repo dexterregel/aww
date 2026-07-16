@@ -31,7 +31,6 @@ export default function Catalog() {
     }
     fetchData();
   }, []);
-  console.log(imagePaths);
 
   // use the url param to construct the page title
   const pageTitle = params.moldingTrimType[0].toUpperCase() + params.moldingTrimType.replaceAll('-', ' ').slice(1);

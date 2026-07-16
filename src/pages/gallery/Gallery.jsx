@@ -47,9 +47,9 @@ export default function Gallery() {
     }
     const gallerySections = images.map((image, index) => {
       return (
-        <Link key={index} to={image.type} className='section'>
+        <Link key={index} to={image.type} className='gallery'>
           <img src={`${bucketUrl}/${image.path}`} />
-          <p>{image.type.charAt(0).toUpperCase() + image.type.replaceAll('-', ' ').slice(1)}</p>
+          <h2>→ {image.type.charAt(0).toUpperCase() + image.type.replaceAll('-', ' ').slice(1)}</h2>
         </Link>
       );
     });
@@ -65,7 +65,7 @@ export default function Gallery() {
     <main>
       <h1>Gallery</h1>
       <p>View our work:</p>
-      <div className='gallery'>
+      <div className='gallery-container'>
         {gallerySections}
       </div>
     </main>

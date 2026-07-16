@@ -4,7 +4,7 @@ import receptionArea from '../../assets/images/misc/reception-area.jpg';
 
 export default function Home() {
   return (
-    <main>
+    <main className='home-container'>
       <h1>Premier Woodworking Specialists</h1>
       <section className='home'>
         <p>We manufacture wood products for a wide variety of clients. Our industrial manufacturing facility, located in St. Petersburg, FL, encompasses 19,000 square feet. Take a moment to learn how our commitment to quality and service can put a signature of success on your woodworking products.</p>

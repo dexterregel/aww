@@ -21,12 +21,12 @@ export default function Cabinetry() {
   });
 
   return (
-    <main>
-      <section>
-        <h1>Cabinetry</h1>
-        <Link to='..' relative='path' className='back-button'>← Back to Services</Link>
+    <main className='cabinetry-container'>
+      <h1>Cabinetry</h1>
+      <Link to='..' relative='path' className='back-button'>← Back to Services</Link>
+      <section className='cabinetry'>
         <p>Our cabinetry division is the perfect answer for everything from face-frame and European-style cabinetry, to custom finishes and solid surfaces. We offer cabinets with a full selection of styles, materials, accessories, and finishes, allowing you to take the guess work out of ordering by delivering exactly what you need.</p>
-        <div className='photos'>
+        <div className='cabinetry-images'>
           {images}
         </div>
       </section>

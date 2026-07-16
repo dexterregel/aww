@@ -36,7 +36,6 @@ export function getFilteredBucketContents(bucketContents, filter) {
   const filteredBucketContents = json.ListBucketResult.Contents
     .map(image => image.Key)
     .filter(image => {
-      console.log('filter', image.path)
       // filter out the result that isn't a file
       if (image === `images/${filter}/` || image === `images/gallery/${filter}/`) {
         return false;

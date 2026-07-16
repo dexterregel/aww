@@ -32,7 +32,7 @@ export default function GalleryType() {
 
   const galleryTypeEls = imagePaths.map((path, index) => {
     return (
-      <div key={index} className='molding-trim-item'>
+      <div key={index} className='gallery'>
         <img src={`${bucketUrl}/${path}`} />
       </div>
     );
@@ -44,9 +44,9 @@ export default function GalleryType() {
 
   return (
     <main>
-      <h1>{params.galleryType}</h1>
+      <h1>{params.galleryType.charAt(0).toUpperCase() + params.galleryType.replaceAll('-', ' ').slice(1)}</h1>
       <Link to='..' relative='path' className='back-button'>← Back to Gallery</Link>
-      <div className='molding-trim-container'>
+      <div className='gallery-container'>
         {galleryTypeEls}
       </div>
     </main>
