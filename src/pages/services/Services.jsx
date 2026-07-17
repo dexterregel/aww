@@ -5,7 +5,7 @@ export default function Services() {
   return (
     <main>
       <h1>Services</h1>
-      <p>We offer the following services:</p>
+      <p>We offer the following services. Select one to view more details:</p>
       <div className='service-container'>
         <section className='service'>
           <Link to='cabinetry'>
