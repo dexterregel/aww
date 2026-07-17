@@ -2,16 +2,12 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   getFilteredBucketData,
+  getImageUrl,
   getChildDirs
 } from '../../utils.js';
 import './gallery.css';
 
 export default function Gallery() {
-  // vars
-  const bucketName = 'aww-assets-961743401958-us-east-1-an';
-  const bucketRegion = 'us-east-1';
-  const bucketUrl = `http://${bucketName}.s3.${bucketRegion}.amazonaws.com`;
-
   // states
   const [imagePaths, setImagePaths] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -20,7 +16,7 @@ export default function Gallery() {
   useEffect(() => {
     async function fetchData() {
       setIsLoading(true);
-      const filteredBucketData = await getFilteredBucketData(bucketName, 'gallery');
+      const filteredBucketData = await getFilteredBucketData('gallery');
       setImagePaths(filteredBucketData);
       setIsLoading(false);
     }
@@ -46,7 +42,7 @@ export default function Gallery() {
     const gallerySections = images.map((image, index) => {
       return (
         <Link key={index} to={image.type} className='gallery'>
-          <img src={`${bucketUrl}/${image.path}`} />
+          <img src={getImageUrl(image.path)} />
           <h2>→ {image.type.charAt(0).toUpperCase() + image.type.replaceAll('-', ' ').slice(1)}</h2>
         </Link>
       );

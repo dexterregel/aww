@@ -79,9 +79,11 @@ export async function getBucketData(bucketName) {
   }
 }
 
-export async function getFilteredBucketData(bucketName, filter) {
+export async function getFilteredBucketData(
+  filter,
+  bucketName = 'aww-assets-961743401958-us-east-1-an'
+) {
   const bucketData = await getBucketData(bucketName);
-  console.log(bucketData);
   // parse the returned data based on the supplied filter
 
   const filteredBucketData = bucketData.ListBucketResult.Contents
@@ -93,10 +95,13 @@ export async function getFilteredBucketData(bucketName, filter) {
       }
       return image.includes(filter);
     });
-  console.log(filteredBucketData);
   return filteredBucketData;
 }
 
-export function getImageUrl(bucketName, path, bucketRegion = 'us-east-1') {
+export function getImageUrl(
+  path,
+  bucketName = 'aww-assets-961743401958-us-east-1-an',
+  bucketRegion = 'us-east-1'
+) {
   return `http://${bucketName}.s3.${bucketRegion}.amazonaws.com/${path}`;
 }
