@@ -3,17 +3,7 @@ import './cabinetry.css';
 
 export default function Cabinetry() {
 
-  // import images in dir
-  // const modules = import.meta.glob(
-  //   '../../assets/images/cabinetry/*',
-  //   { eager: true, query: 'url' }
-  // );
-
-  // const gallery = Object.values(import.meta.glob('/*', { eager: true, query: 'url'}));
-  // for (const path in modules) {
-  //   const p = new URL(path, import.meta.url).href;
-  //   gallery.push(p);
-  // }
+  // todo get images from s3 instead of from the assets folder
 
   const modules = import.meta.glob('/src/assets/images/cabinetry/*', { eager: true });
   const images = Object.values(modules).map((path, index) => {

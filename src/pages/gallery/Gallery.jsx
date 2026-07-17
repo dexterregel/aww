@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  getBucketContents,
-  getFilteredBucketContents,
+import {
+  getFilteredBucketData,
   getChildDirs
 } from '../../utils.js';
 import './gallery.css';
@@ -21,9 +20,8 @@ export default function Gallery() {
   useEffect(() => {
     async function fetchData() {
       setIsLoading(true);
-      const bucketContents = await getBucketContents(bucketName);
-      const filteredBucketContents = getFilteredBucketContents(bucketContents, 'gallery');
-      setImagePaths(filteredBucketContents);
+      const filteredBucketData = await getFilteredBucketData(bucketName, 'gallery');
+      setImagePaths(filteredBucketData);
       setIsLoading(false);
     }
     fetchData();
