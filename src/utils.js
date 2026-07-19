@@ -60,7 +60,6 @@ export async function getFilteredBucketContents(bucketName, filter) {
 
 
 // gets data from the specified public s3 bucket
-// returns an xml doc
 export async function getBucketData(bucketName) {
   const bucketUrl = `http://s3.amazonaws.com/${bucketName}`;
   try {

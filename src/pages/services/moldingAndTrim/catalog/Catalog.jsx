@@ -2,18 +2,13 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import './catalog.css';
 import {
-  getChildDirs,
-  getBucketContents,
-  getFilteredBucketContents,
-  getFileNameFromPath
+  getFileNameFromPath,
+  getFilteredBucketData,
+  getImageUrl,
+  formatToTitle
 } from '../../../../utils.js';
 
 export default function Catalog() {
-  // vars
-  const bucketName = 'aww-assets-961743401958-us-east-1-an';
-  const bucketRegion = 'us-east-1';
-  const bucketUrl = `http://${bucketName}.s3.${bucketRegion}.amazonaws.com`;
-
   const params = useParams();
 
   // states
@@ -24,33 +19,27 @@ export default function Catalog() {
   useEffect(() => {
     async function fetchData() {
       setIsLoading(true);
-      const bucketContents = await getBucketContents(bucketName);
-      const filteredBucketContents = await getFilteredBucketContents(bucketContents, params.moldingTrimType);
-      setImagePaths(filteredBucketContents);
+      const filteredBucketData = await getFilteredBucketData(params.moldingTrimType);
+      setImagePaths(filteredBucketData);
       setIsLoading(false);
     }
     fetchData();
   }, []);
 
   // use the url param to construct the page title
-  const pageTitle = params.moldingTrimType[0].toUpperCase() + params.moldingTrimType.replaceAll('-', ' ').slice(1);
+  const pageTitle = formatToTitle(params.moldingTrimType);
 
-  function getMoldingTrimEls(imagePaths) {
-    // exit early if imagePaths doesn't have data
-    if (imagePaths.length === 0) {
-      return;
-    }
-    const moldingTrimEls = imagePaths.map((path, index) => {
+  let moldingTrimItems = [];
+  if (imagePaths.length > 0) {
+    moldingTrimItems = imagePaths.map((path, index) => {
       return (
         <div key={index} className='molding-trim-item'>
-          <img src={`${bucketUrl}/${path}`} />
+          <img src={getImageUrl(path)} />
           <p>{getFileNameFromPath(path, false).toUpperCase()}</p>
         </div>
       );
     })
-    return moldingTrimEls;
-  };
-  const moldingTrimEls = getMoldingTrimEls(imagePaths);
+  }
 
   if (isLoading) {
     return <h1 style={{textAlign: 'center'}}>Loading...</h1>;
@@ -61,7 +50,7 @@ export default function Catalog() {
       <h1>{pageTitle}</h1>
       <Link to='..' relative='path' className='back-button'>← Back to Molding and Trim</Link>
       <div className='molding-trim-container'>
-        {moldingTrimEls}
+        {moldingTrimItems}
       </div>
     </main>
   );
