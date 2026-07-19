@@ -5,6 +5,7 @@ import {
   getImageUrl,
   formatToTitle
 } from '../../utils.js';
+import './gallery.css';
 
 export default function GalleryType() {
   const params = useParams();
@@ -57,7 +58,7 @@ export default function GalleryType() {
     <main>
       <h1>{formatToTitle(params.galleryType)}</h1>
       <Link to='..' relative='path' className='back-button'>← Back to Gallery</Link>
-      <div className='gallery-container'>
+      <div className='gallery-image-container'>
         {galleryImages}
       </div>
       {showBackdrop ? <div className='backdrop' onClick={zoomImage} /> : null}

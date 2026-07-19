@@ -51,7 +51,7 @@ export default function Gallery() {
     <main>
       <h1>Gallery</h1>
       <p>View our work:</p>
-      <div className='gallery-container'>
+      <div className='gallery-preview-container'>
         {galleryPreviews}
       </div>
     </main>
