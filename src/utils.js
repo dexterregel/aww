@@ -3,7 +3,6 @@ import { XMLParser } from 'fast-xml-parser';
 /*
   vars
 */
-const bucketName = 'aww-assets-961743401958-us-east-1-an';
 
 /*
   functions
@@ -130,7 +129,7 @@ export function getImageUrl(
         absPath: "parentDir/childDir2/img3.jpg"
       }
     ]
-  This function is intended for creating preview images.
+  This function is intended for creating preview elements.
 */
 export function getFirstImagePaths(parentDir, imagePaths) {
   const childDirs = getChildDirs(parentDir, imagePaths);
@@ -142,4 +141,11 @@ export function getFirstImagePaths(parentDir, imagePaths) {
     firstImagePaths.push(firstImage);
   });
   return firstImagePaths;
+}
+
+/*
+  Formats the supplied string into a title.
+*/
+export function formatToTitle(string) {
+  return string.charAt(0).toUpperCase() + string.replaceAll('-', ' ').slice(1);
 }

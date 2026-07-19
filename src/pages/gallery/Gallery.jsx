@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import GalleryPreview from './GalleryPreview.jsx';
 import {
   getFilteredBucketData,
   getFirstImagePaths
 } from '../../utils.js';
+import GalleryPreview from './GalleryPreview.jsx';
 import './gallery.css';
 
 export default function Gallery() {
