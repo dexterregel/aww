@@ -9,7 +9,7 @@ const bucketName = 'aww-assets-961743401958-us-east-1-an';
   functions
 */
 // takes an array of paths and a parent dir, and returns an array of the child directories found under parentDir
-export function getChildDirs(paths, parentDir) {
+export function getChildDirs(parentDir, paths) {
   const parentDirIndex = paths[0].split('/').indexOf(parentDir);
   const set = new Set();
   for (const path of paths) {
@@ -104,4 +104,42 @@ export function getImageUrl(
   bucketRegion = 'us-east-1'
 ) {
   return `http://${bucketName}.s3.${bucketRegion}.amazonaws.com/${path}`;
+}
+
+/*
+  This function accepts an array of image paths, and the name of a parent directory.
+  It returns an array of objects, where the properties of each object are
+  the name of the child directory under the specified parent,
+  and the first image path inside of the child directory.
+  For example, if imagePaths is passed in with the following structure:
+    parentDir/
+      childDir1/
+        /img1.jpg
+        /img2.jpg
+      childDir2/
+        img3.jpg
+        img4.jpg
+  and "parentDir" is passed in as the argument, the function will return the following array:
+    [
+      {
+        dir: "childDir1",
+        absPath: "parentDir/childDir1/img1.jpg"
+      },
+      {
+        dir: "childDir2",
+        absPath: "parentDir/childDir2/img3.jpg"
+      }
+    ]
+  This function is intended for creating preview images.
+*/
+export function getFirstImagePaths(parentDir, imagePaths) {
+  const childDirs = getChildDirs(parentDir, imagePaths);
+  const firstImagePaths = [];
+  childDirs.forEach(dir => {
+    const firstImage = {}
+    firstImage.dir = dir;
+    firstImage.absPath = imagePaths.find(path => path.includes(dir));
+    firstImagePaths.push(firstImage);
+  });
+  return firstImagePaths;
 }

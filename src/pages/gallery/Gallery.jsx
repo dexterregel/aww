@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import GalleryPreview from './GalleryPreview.jsx';
 import {
   getFilteredBucketData,
-  getImageUrl,
-  getChildDirs
+  getFirstImagePaths
 } from '../../utils.js';
 import './gallery.css';
 
@@ -11,6 +11,12 @@ export default function Gallery() {
   // states
   const [imagePaths, setImagePaths] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  // values derived from states
+  let firstImagePaths = [];
+  if (imagePaths.length > 0) {
+    firstImagePaths = getFirstImagePaths('gallery', imagePaths);
+  }
 
   // effects
   useEffect(() => {
@@ -23,34 +29,20 @@ export default function Gallery() {
     fetchData();
   }, []);
 
-  // create gallery type preview elements
-  function getGallerySections(imagePaths) {
-    // exit early if imagePaths doesn't have data
-    if (imagePaths.length === 0) {
-      return;
-    }
-    // get a corresponding image for each child dir
-    const dirs = getChildDirs(imagePaths, 'gallery');
-    const images = [];
-    for (const dir of dirs) {
-      const image = {}
-      // get the image's type for setting the url
-      image.type = dir;
-      image.path = imagePaths.filter(path => path.includes(dir))[0];
-      images.push(image);
-    }
-    const gallerySections = images.map((image, index) => {
+  let galleryPreviews = [];
+  if (firstImagePaths.length > 0) {
+    galleryPreviews = firstImagePaths.map((firstImagePath, index) => {
       return (
-        <Link key={index} to={image.type} className='gallery'>
-          <img src={getImageUrl(image.path)} />
-          <h2>→ {image.type.charAt(0).toUpperCase() + image.type.replaceAll('-', ' ').slice(1)}</h2>
-        </Link>
+        <GalleryPreview
+          key={index}
+          galleryType={firstImagePath.dir}
+          imagePath={firstImagePath.absPath}
+        />
       );
     });
-    return gallerySections;
   }
-  const gallerySections = getGallerySections(imagePaths);
 
+  // early return for when page content is loading
   if (isLoading) {
     return <h1 style={{textAlign: 'center'}}>Loading...</h1>;
   }
@@ -60,7 +52,7 @@ export default function Gallery() {
       <h1>Gallery</h1>
       <p>View our work:</p>
       <div className='gallery-container'>
-        {gallerySections}
+        {galleryPreviews}
       </div>
     </main>
   );
