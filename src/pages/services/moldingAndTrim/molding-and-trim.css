@@ -1,5 +1,5 @@
 .molding-trim-container {
-  max-width: 800px;
+  max-width: 80vw;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -16,6 +16,12 @@
   padding: 0.5em 1em;
   border-radius: 10px;
   text-align: center;
+}
+
+.molding-trim-item img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
 }
 
 .molding-trim-item:hover {
@@ -55,7 +61,7 @@
     object-fit: contain;
   }
 
-  .molding-trim-item p {
+  .molding-trim-item h2 {
     width: 50%;
   }
 }

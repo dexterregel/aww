@@ -4,7 +4,7 @@ import {
   getFilteredBucketData,
   getFirstImagePaths
 } from '../../utils.js';
-import GalleryPreview from './GalleryPreview.jsx';
+import Preview from '../../components/Preview.jsx';
 import './gallery.css';
 
 export default function Gallery() {
@@ -33,10 +33,11 @@ export default function Gallery() {
   if (firstImagePaths.length > 0) {
     galleryPreviews = firstImagePaths.map((firstImagePath, index) => {
       return (
-        <GalleryPreview
+        <Preview
           key={index}
-          galleryType={firstImagePath.dir}
+          className='gallery-preview'
           imagePath={firstImagePath.absPath}
+          title={firstImagePath.dir}
         />
       );
     });
