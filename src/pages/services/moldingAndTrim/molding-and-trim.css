@@ -1,6 +1,7 @@
 .molding-trim-container {
   max-width: 50vw;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
   gap: 1em;
@@ -10,12 +11,12 @@
   color: #121212;
   background-color: white;
   text-decoration: none;
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 0.5em 1em;
   border-radius: 10px;
-  text-align: center;
 }
 
 .molding-trim-item img {
@@ -30,10 +31,11 @@
 
 @media (max-width: 768px) {
   .molding-trim-container {
+    max-width: 80vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    flex-wrap: nowrap;
     gap: 1em;
   }
 
@@ -44,10 +46,11 @@
     text-decoration: none;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     padding: 0.5em 1em;
     border-radius: 10px;
+    margin-bottom: 1em;
   }
 
   .molding-trim-item:hover,
@@ -63,5 +66,6 @@
 
   .molding-trim-item h2 {
     width: 50%;
+    text-align: center;
   }
 }
