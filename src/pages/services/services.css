@@ -1,50 +1,54 @@
 .service-container {
+  width: 50vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 2em;
 }
 
-.service {
+.service-item {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
+  align-items: center;
   gap: 1em;
 }
 
-.service a {
-  color: #121212;
+.service-item a {
+  width: 400px;
+  color: white;
+  background-color: maroon;
+  text-align: center;
   text-decoration: none;
+  padding: 0.25em 0;
+  border-radius: 10px;
 }
 
-.service h2 {
-  margin: 0;
-}
-
-.service h2:hover {
+.service-item a:hover {
+  color: gold;
   text-decoration: underline;
 }
 
-.service p {
+.service-item h2 {
+  margin: 0;
+}
+
+.service-item p {
   padding: 0;
   margin: 0;
 }
 
 @media (max-width: 768px) {
-
   .service-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 80vw;
     gap: 1em;
   }
 
-  .service {
+  .service-item {
     margin-bottom: 2em;
   }
 
-  .service h2 {
+  .service-item h2 {
+    width: 100%;
     color: white;
     background-color: maroon;
     text-decoration: underline;

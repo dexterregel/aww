@@ -11,3 +11,37 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+main {
+  display: flex;
+  flex-direction: column;
+  margin: 2em auto;
+}
+
+/* common layout */
+h1.page-title {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+a.back-button,
+p.page-descript {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 2em;
+}
+
+p {
+  line-height: 1.5;
+}
+
+img {
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  h1.page-title {
+    margin-bottom: 1em;
+  }
+}

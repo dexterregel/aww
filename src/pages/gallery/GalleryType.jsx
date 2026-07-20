@@ -5,6 +5,7 @@ import {
   getImageUrl,
   formatToTitle
 } from '../../utils.js';
+import Loading from '../../components/Loading.jsx';
 import './gallery.css';
 
 export default function GalleryType() {
@@ -51,13 +52,15 @@ export default function GalleryType() {
   });
 
   if (isLoading) {
-    return <h1 style={{textAlign: 'center'}}>Loading...</h1>;
+    return <Loading />;
   }
 
   return (
     <main>
-      <h1>{formatToTitle(params.galleryType)}</h1>
-      <Link to='..' relative='path' className='back-button'>← Back to Gallery</Link>
+      <h1 className='page-title'>{formatToTitle(params.galleryType)}</h1>
+      <Link to='..' relative='path' className='back-button'>
+        ← Back to Gallery
+      </Link>
       <div className='gallery-image-container'>
         {galleryImages}
       </div>

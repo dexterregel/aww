@@ -6,6 +6,7 @@ import {
   getFirstImagePaths
 } from '../../../utils.js';
 import Preview from '../../../components/Preview.jsx';
+import Loading from '../../../components/Loading.jsx';
 import './molding-and-trim.css';
 
 export default function MoldingAndTrim() {
@@ -45,14 +46,14 @@ export default function MoldingAndTrim() {
   }
 
   if (isLoading) {
-    return <h1 style={{textAlign: 'center'}}>Loading...</h1>;
+    return <Loading />;
   }
 
   return (
     <main>
-      <h1>Molding and Trim</h1>
+      <h1 className='page-title'>Molding and Trim</h1>
       <Link to='..' relative='path' className='back-button'>← Back to Services</Link>
-      <p>Explore our catalog:</p>
+      <p className='page-descript'>Explore our catalog:</p>
       <div className='molding-trim-container'>
         {previews}
       </div>

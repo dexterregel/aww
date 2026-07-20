@@ -6,6 +6,7 @@ import {
   getImageUrl,
   formatToTitle
 } from '../../../../utils.js';
+import Loading from '../../../../components/Loading.jsx';
 import './catalog.css';
 
 export default function Catalog() {
@@ -42,12 +43,12 @@ export default function Catalog() {
   }
 
   if (isLoading) {
-    return <h1 style={{textAlign: 'center'}}>Loading...</h1>;
+    return <Loading />;
   }
 
   return (
     <main>
-      <h1>{pageTitle}</h1>
+      <h1 className='page-title'>{pageTitle}</h1>
       <Link to='..' relative='path' className='back-button'>← Back to Molding and Trim</Link>
       <div className='molding-trim-container'>
         {moldingTrimItems}

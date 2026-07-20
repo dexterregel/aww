@@ -4,6 +4,7 @@ import {
   getFilteredBucketData,
   getFirstImagePaths
 } from '../../utils.js';
+import Loading from '../../components/Loading.jsx';
 import Preview from '../../components/Preview.jsx';
 import './gallery.css';
 
@@ -43,15 +44,14 @@ export default function Gallery() {
     });
   }
 
-  // early return for when page content is loading
   if (isLoading) {
-    return <h1 style={{textAlign: 'center'}}>Loading...</h1>;
+    return <Loading />;
   }
 
   return (
     <main>
-      <h1>Gallery</h1>
-      <p>View our work:</p>
+      <h1 className='page-title'>Gallery</h1>
+      <p className='page-descript'>View our work:</p>
       <div className='gallery-preview-container'>
         {galleryPreviews}
       </div>

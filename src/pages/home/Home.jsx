@@ -3,6 +3,7 @@ import {
   getFilteredBucketData,
   getImageUrl
 } from '../../utils.js';
+import Loading from '../../components/Loading.jsx';
 import './home.css';
 
 export default function Home() {
@@ -31,20 +32,22 @@ export default function Home() {
   }
 
   if (isLoading) {
-    return <h1 style={{textAlign: 'center'}}>Loading...</h1>;
+    return <Loading />;
   }
 
   return (
-    <main className='home-container'>
-      <h1>Premier Woodworking Specialists</h1>
-      <section className='home'>
-        <p>We manufacture wood products for a wide variety of clients. Our industrial manufacturing facility, located in St. Petersburg, FL, encompasses 19,000 square feet. Take a moment to learn how our commitment to quality and service can put a signature of success on your woodworking products.</p>
-        {images[0]}
-      </section>
-      <section className='home'>
-        {images[1]}
-        <p>Our operation is built upon the knowledge and skills that our dedicated staff bring to the table (whether your boardroom table or our saw tables). When you work with us, you're working with people who have a long tenure of craftsmanship backed by industry certifications and awards.</p>
-      </section>
+    <main>
+      <h1 className='page-title'>Premier Woodworking Specialists</h1>
+      <div className='home-container'>
+        <section className='home-item'>
+          <p>We manufacture wood products for a wide variety of clients. Our industrial manufacturing facility, located in St. Petersburg, FL, encompasses 19,000 square feet. Take a moment to learn how our commitment to quality and service can put a signature of success on your woodworking products.</p>
+          {images[0]}
+        </section>
+        <section className='home-item'>
+          {images[1]}
+          <p>Our operation is built upon the knowledge and skills that our dedicated staff bring to the table (whether your boardroom table or our saw tables). When you work with us, you're working with people who have a long tenure of craftsmanship backed by industry certifications and awards.</p>
+        </section>
+      </div>
     </main>
   );
 }

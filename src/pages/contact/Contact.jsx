@@ -3,7 +3,7 @@ import './contact.css';
 
 export default function Contact() {
   // states
-  const [imageUrl, setImageUrl] = useState(null);
+  const [mapImgUrl, setMapImgUrl] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   // effects
@@ -17,7 +17,7 @@ export default function Contact() {
       const googleMapsStyle = 'style=feature:poi|visibility:off';
       const googleMapsApiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
       const googleMapsUrl = `${googleMapsBaseUrl}?${googleMapsMarker}&${googleMapsZoom}&${googleMapsSize}&${googleMapsStyle}&key=${googleMapsApiKey}`;
-      setImageUrl(googleMapsUrl);
+      setMapImgUrl(googleMapsUrl);
       setIsLoading(false);
     }
     fetchData();
@@ -29,16 +29,16 @@ export default function Contact() {
 
   return (
     <main>
-      <h1>Contact us</h1>
-      <section className='contact-container'>
-        <img src={imageUrl} />
+      <h1 className='page-title'>Contact us</h1>
+      <div className='contact-container'>
+        <img src={mapImgUrl} />
         <ul className='contact'>
           <li>Architectural Woodworking</li>
           <li>3291 40th Ave N</li>
           <li>St. Petersburg, FL 33714</li>
           <li>(727) 527-7400</li>
         </ul>
-      </section>
+      </div>
     </main>
   );
 }

@@ -1,13 +1,25 @@
-section {
-  width: 50%;
+.millwork-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
 }
 
-section h2 {
+.millwork-item {
+  max-width: 50vw;
+}
+
+.millwork-item h2 {
+  margin: 0 0 1em 0;
   text-align: center;
 }
 
+.millwork-item p {
+  margin: 0;
+}
+
 @media (max-width: 768px) {
-  section {
-    width: 80%;
+  .millwork-item {
+    max-width: 80vw;
   }
 }

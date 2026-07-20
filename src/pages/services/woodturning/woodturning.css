@@ -1,0 +1,17 @@
+.woodturning-container {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .woodturning-container {
+    width: 80vw;
+  }
+
+  .woodturning-container p {
+    margin: 0;
+  }
+}
