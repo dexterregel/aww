@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import './catalog.css';
 import {
-  getFileNameFromPath,
   getFilteredBucketData,
+  getFileNameFromPath,
   getImageUrl,
   formatToTitle
 } from '../../../../utils.js';
+import './catalog.css';
 
 export default function Catalog() {
   const params = useParams();
