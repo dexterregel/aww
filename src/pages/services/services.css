@@ -22,11 +22,20 @@
   text-decoration: none;
   padding: 0.25em 0;
   border-radius: 10px;
+  box-shadow: 0 3px 3px #121212;
+  transition: all 0.1s ease;
 }
 
 .service-item a:hover {
   color: gold;
   text-decoration: underline;
+  box-shadow: 0 5px 5px #121212;
+  transform: translateY(-1px);
+}
+
+.service-item a:active {
+  box-shadow: 0 1px 1px #121212;
+  transform: translateY(1px);
 }
 
 .service-item h2 {
