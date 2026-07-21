@@ -7,6 +7,7 @@
   gap: 1em;
 }
 
+.molding-trim-preview,
 .molding-trim-item {
   color: #121212;
   background-color: white;
@@ -19,13 +20,14 @@
   border-radius: 10px;
 }
 
+.molding-trim-preview img,
 .molding-trim-item img {
   width: 200px;
   height: 200px;
   object-fit: contain;
 }
 
-.molding-trim-item:hover {
+.molding-trim-preview:hover {
   text-decoration: underline;
 }
 
@@ -39,6 +41,7 @@
     gap: 1em;
   }
 
+  .molding-trim-preview,
   .molding-trim-item {
     width: 80vw;
     color: #121212;
@@ -53,19 +56,28 @@
     margin-bottom: 1em;
   }
 
+  .molding-trim-preview:hover,
+  .molding-trim-preview:active,
   .molding-trim-item:hover,
   .molding-trim-item:active {
     text-decoration: underline;
   }
 
+  .molding-trim-preview img,
   .molding-trim-item img {
     width: 50%;
     max-height: 100px;
     object-fit: contain;
   }
 
+  .molding-trim-preview h2,
   .molding-trim-item h2 {
     width: 50%;
     text-align: center;
+  }
+
+  .molding-trim-item:hover,
+  .molding-trim-item:active {
+    text-decoration: none;
   }
 }

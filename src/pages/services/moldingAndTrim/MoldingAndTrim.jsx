@@ -37,7 +37,7 @@ export default function MoldingAndTrim() {
       return (
         <Preview
           key={index}
-          className='molding-trim-item'
+          className='molding-trim-preview'
           imagePath={firstImagePath.absPath}
           title={firstImagePath.dir}
         />

@@ -7,7 +7,6 @@ import {
   formatToTitle
 } from '../../../../utils.js';
 import Loading from '../../../../components/Loading.jsx';
-import './catalog.css';
 
 export default function Catalog() {
   const params = useParams();
