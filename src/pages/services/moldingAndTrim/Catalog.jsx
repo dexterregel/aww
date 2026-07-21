@@ -5,8 +5,8 @@ import {
   getFileNameFromPath,
   getImageUrl,
   formatToTitle
-} from '../../../../utils.js';
-import Loading from '../../../../components/Loading.jsx';
+} from '../../../utils.js';
+import Loading from '../../../components/Loading.jsx';
 
 export default function Catalog() {
   const params = useParams();
